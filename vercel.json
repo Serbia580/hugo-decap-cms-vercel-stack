@@ -1,0 +1,11 @@
+{
+  "rewrites": [
+    { "source": "/auth", "destination": "/api/auth.ts" },
+    { "source": "/callback", "destination": "/api/callback.ts" }
+  ],
+  "build": {
+        "env": {
+            "HUGO_VERSION": "0.119.0"
+        }
+  }
+}

@@ -1,0 +1,49 @@
+backend:
+  name: github
+  repo: Serbia580/stack # Path to your Github/Gitlab repository
+  branch: main # Branch to update
+  base_url: https://stack-umber.vercel.app
+  
+ # when using the default proxy server port
+ # Run npx netlify-cms-proxy-server from the root dir of the repo
+local_backend: true
+
+# 编辑工作流程
+publish_mode: editorial_workflow
+
+# This line should *not* be indented
+media_folder: "static/images/uploads" # 媒体文件将存储在图片/上载下的Repo中。
+public_folder: "/images/uploads" # 上传的媒体的src属性将以/images/uploads开头。
+
+locale: "zh_Hans" # 语言环境 https://github.com/netlify/netlify-cms/tree/master/packages/netlify-cms-locales/src
+
+collections:
+  - name: "post" # Used in routes, e.g., /admin/collections/blog
+    label: "Post" # Used in the UI
+    folder: "content/post" # The path to the folder where the documents are stored
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    create: true # 允许用户在这个集合中创建新的文件。    
+    fields: # 每份文件的字段，通常是前面的内容。
+      - {label: "文章封面", name: "image", widget: "image", required: false} 
+      - {label: "文章排序", name: "sticky", widget: "number", required: false, hint: "数值越大，该文章越靠前"}
+      - {label: "标题", name: "title", widget: "string" }
+      - {label: "副标题", name: "description", widget: "string", required: false}
+      - {label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss", dateFormat: "YYYY-MM-DD", timeFormat: "HH:mm:ss", required: false}
+      - {label: "更新日期", name: "updated", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss", dateFormat: "YYYY-MM-DD", timeFormat: "HH:mm:ss", required: false}
+      - {label: "标签", name: "tags", widget: "list", required: false}
+      - {label: "分类", name: "categories", widget: "list", required: false}
+      - {label: "关键词", name: "keywords", widget: "list", required: false}
+      - {label: "Slug", name: "slug", widget: "string", required: false}
+      - {label: "评论", name: "comments", widget: "boolean", default: true, required: false}
+      - {label: "内容", name: "body", widget: "markdown", required: false}
+
+  - name: "page"
+    label: "Page"
+    files:
+      - file: "content/page/about/index.md"
+        name: "about"
+        label: "关于"
+        fields:
+          - {label: "标题", name: "title", widget: "string"}
+          - {label: "内容", name: "body", widget: "markdown", required: false}
+          - {label: "评论", name: "comments", widget: "boolean", default: true, required: false}
