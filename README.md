@@ -14,9 +14,6 @@ Use this template  开箱即可用
 
 
 
-
-
-
 在Vercel上部署带有decap-cms的hugo博客。
 
 ✔完全免费
@@ -62,7 +59,7 @@ git clone https://github.com/Serbia580/hugo-decap-cms-vercel.git
 祝贺！您已经在Vercel上成功部署了decap-cms的Hugo博客。
 
 
-下面是自己diy版，没有安装主题和原文件
+下面是自己diy版，没有安装主题和原文件 
 
 https://github.com/Serbia580/hugo-decap-cms-vercel
 
